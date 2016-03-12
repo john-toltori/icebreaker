@@ -10,6 +10,7 @@ import UIKit
 
 protocol BLEDataProcessDelegate {
     func processData(data: UnsafeMutablePointer<UInt8>, length: Int32)
+    func bleDisconnected()
 }
 
 class BLEDataProcessor: NSObject {

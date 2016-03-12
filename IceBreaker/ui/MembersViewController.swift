@@ -257,6 +257,9 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func bleDidDisconnect() {
         self.view.makeToast(message: "Disconnected from the sensor device!")
+        if let processor = BLEDataProcessor.getInstance().processor {
+            processor.bleDisconnected()
+        }
     }
     
     func bleDidReceiveData(data: UnsafeMutablePointer<UInt8>, length: Int32) {

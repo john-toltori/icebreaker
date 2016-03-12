@@ -633,7 +633,7 @@
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <integer key="value" value="180"/>
+                                        <integer key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitOfMeasurement" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="unitOfMeasurement" value="GSR"/>

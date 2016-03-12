@@ -148,13 +148,13 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         //
         // 측정자료 샘플링.
         //
-        // [0..SENSOR_MAX_VALUE] -> [0..180]
+        // [0..SENSOR_MAX_VALUE] -> [0..100]
         let sensorValue = pinAnalog[Int(SENSOR_PIN)];
-        var measureValue = Int(SENSOR_MAX_VALUE - sensorValue) * 180 / Int(SENSOR_MAX_VALUE)
+        var measureValue = Int(SENSOR_MAX_VALUE - sensorValue) * 100 / Int(SENSOR_MAX_VALUE)
         if measureValue < 0 {
             measureValue = 0
         }
-        //let measureValue = rand() % 180
+        //let measureValue = rand() % 100
         Members.getInstance().members[memberIndex].measures.append(Int(measureValue))
         gvMeasureValue.value = CGFloat(measureValue)
         showMeasureValues()
@@ -182,7 +182,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         cvMeasureValues.drawGridBackgroundEnabled = false
         let leftAxis = cvMeasureValues.leftAxis
         leftAxis.customAxisMin = 0
-        leftAxis.customAxisMax = 180
+        leftAxis.customAxisMax = 100
         leftAxis.gridLineDashLengths = [5.0, 5.0]
         leftAxis.drawZeroLineEnabled = true
         cvMeasureValues.rightAxis.enabled = false
@@ -234,6 +234,10 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         rblProtocol.parseData(data, length: length)
     }
     
+    func bleDisconnected() {
+        self.view.makeToast(message: "Disconnected from the sensor device!")
+    }
+
     func protocolDidReceiveProtocolVersion(major: UInt8, _ minor: UInt8, _ bugfix: UInt8) -> Void {
         self.view.hideToastActivity()
         syncTimer.invalidate()
@@ -278,5 +282,4 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     func protocolDidReceiveCustomData(data: UnsafeMutablePointer<UInt8>, _ length: UInt8) {
         // Custom data.
     }
-    
 }
