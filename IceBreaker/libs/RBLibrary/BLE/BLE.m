@@ -427,6 +427,13 @@ static int rssi = 0;
     }
     else
     {
+        //
+        // [2016/03/13 17:31 KSH]"IceBreaker"인 기기만 검색하도록 한다.
+        //
+        if (peripheral.name == nil || [peripheral.name compare:@RBL_DEVICE_NAME] != NSOrderedSame) {
+            return;
+        }
+        
         for(int i = 0; i < self.peripherals.count; i++)
         {
             CBPeripheral *p = [self.peripherals objectAtIndex:i];
