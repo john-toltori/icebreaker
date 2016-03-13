@@ -61,19 +61,15 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let cell: MemberCell = tableView.dequeueReusableCellWithIdentifier("MemberCell", forIndexPath: indexPath) as! MemberCell
         
         cell.ivProfileImage.image = Members.getInstance().members[indexPath.row].profileImage != nil ? Members.getInstance().members[indexPath.row].profileImage : UIImage(named: "empty")
+        let gr: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("onProfileImage_Click:"))
+        cell.ivProfileImage.addGestureRecognizer(gr)
+        cell.ivProfileImage.tag = indexPath.row
         cell.txtName.text = Members.getInstance().members[indexPath.row].name
         cell.txtName.delegate = self
-        cell.btnCamera.removeTarget(self, action: Selector("onCameraBtn_Click:"), forControlEvents: .TouchUpInside)
-        cell.btnGallery.removeTarget(self, action: Selector("onGalleryBtn_Click:"), forControlEvents: .TouchUpInside)
         cell.btnMeasure.removeTarget(self, action: Selector("onMeasureBtn_Click:"), forControlEvents: .TouchUpInside)
-        
-        cell.btnCamera.addTarget(self, action: Selector("onCameraBtn_Click:"), forControlEvents: .TouchUpInside)
-        cell.btnGallery.addTarget(self, action: Selector("onGalleryBtn_Click:"), forControlEvents: .TouchUpInside)
         cell.btnMeasure.addTarget(self, action: Selector("onMeasureBtn_Click:"), forControlEvents: .TouchUpInside)
         
         cell.txtName.tag = indexPath.row
-        cell.btnCamera.tag = indexPath.row
-        cell.btnGallery.tag = indexPath.row
         cell.btnMeasure.tag = indexPath.row
         cell.selectionStyle = .None
         
@@ -208,7 +204,8 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
-    func onCameraBtn_Click(sender: AnyObject) {
+    func onProfileImage_Click(sender: AnyObject) {
+        let gr: UITapGestureRecognizer = sender as! UITapGestureRecognizer
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             let imagePicker = UIImagePickerController()
             
@@ -217,21 +214,7 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
             
-            indexForImage = (sender as! UIButton).tag
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
-    }
-    
-    func onGalleryBtn_Click(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            let imagePicker = UIImagePickerController()
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = .PhotoLibrary
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
-            
-            indexForImage = (sender as! UIButton).tag
+            indexForImage = gr.view!.tag
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
