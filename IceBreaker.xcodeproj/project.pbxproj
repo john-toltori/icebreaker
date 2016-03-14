@@ -20,6 +20,8 @@
 		B740D75D1C8D1B070011E2BE /* Members.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D75C1C8D1B070011E2BE /* Members.swift */; };
 		B740D7601C8D264A0011E2BE /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D75F1C8D264A0011E2BE /* MemberCell.swift */; };
 		B74D665E1C9158D700F5B5DF /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D665D1C9158D700F5B5DF /* ResultCell.swift */; };
+		B769E0BC1C964EBC00E78629 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769E0BB1C964EBC00E78629 /* ENSideMenu.swift */; };
+		B769E0BE1C96519F00E78629 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769E0BD1C96519F00E78629 /* MenuViewController.swift */; };
 		B796EDE21C904FF200808C0D /* RBLDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE11C904FF200808C0D /* RBLDevicesViewController.swift */; };
 		B796EDE41C90501F00808C0D /* RBLDeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE31C90501F00808C0D /* RBLDeviceCell.swift */; };
 		B796EDED1C90510C00808C0D /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE81C90510C00808C0D /* BLE.m */; };
@@ -53,6 +55,8 @@
 		B740D75C1C8D1B070011E2BE /* Members.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Members.swift; path = data/Members.swift; sourceTree = "<group>"; };
 		B740D75F1C8D264A0011E2BE /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberCell.swift; path = ui/MemberCell.swift; sourceTree = "<group>"; };
 		B74D665D1C9158D700F5B5DF /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultCell.swift; path = ui/ResultCell.swift; sourceTree = "<group>"; };
+		B769E0BB1C964EBC00E78629 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		B769E0BD1C96519F00E78629 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ui/MenuViewController.swift; sourceTree = "<group>"; };
 		B796EDE11C904FF200808C0D /* RBLDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RBLDevicesViewController.swift; path = ui/RBLDevicesViewController.swift; sourceTree = "<group>"; };
 		B796EDE31C90501F00808C0D /* RBLDeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RBLDeviceCell.swift; path = ui/RBLDeviceCell.swift; sourceTree = "<group>"; };
 		B796EDE71C90510C00808C0D /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				B73FECBC1C8D611E003A9382 /* LMGaugeView */,
 				B796EDE51C90510C00808C0D /* RBLibrary */,
 				B796EDF11C90561F00808C0D /* Toast */,
+				B769E0BA1C964EBC00E78629 /* SwiftSideMenu */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -118,6 +123,14 @@
 				B796EDF41C905C8F00808C0D /* BLEDataProcessor.swift */,
 			);
 			name = data;
+			sourceTree = "<group>";
+		};
+		B769E0BA1C964EBC00E78629 /* SwiftSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B769E0BB1C964EBC00E78629 /* ENSideMenu.swift */,
+			);
+			path = SwiftSideMenu;
 			sourceTree = "<group>";
 		};
 		B796EDE51C90510C00808C0D /* RBLibrary */ = {
@@ -206,6 +219,7 @@
 				B796EDE11C904FF200808C0D /* RBLDevicesViewController.swift */,
 				B796EDE31C90501F00808C0D /* RBLDeviceCell.swift */,
 				B74D665D1C9158D700F5B5DF /* ResultCell.swift */,
+				B769E0BD1C96519F00E78629 /* MenuViewController.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -300,12 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B769E0BC1C964EBC00E78629 /* ENSideMenu.swift in Sources */,
 				B740D7381C8D0DF20011E2BE /* MeasureViewController.swift in Sources */,
 				B73FECC31C8D611E003A9382 /* LMGaugeView.m in Sources */,
 				B740D73C1C8D0E210011E2BE /* CalculationsViewController.swift in Sources */,
 				B7A95BB31C8C5EBF00E0F1F6 /* MembersViewController.swift in Sources */,
 				B74D665E1C9158D700F5B5DF /* ResultCell.swift in Sources */,
 				B796EDED1C90510C00808C0D /* BLE.m in Sources */,
+				B769E0BE1C96519F00E78629 /* MenuViewController.swift in Sources */,
 				B740D75D1C8D1B070011E2BE /* Members.swift in Sources */,
 				B796EDF01C90517500808C0D /* BLEDevice.swift in Sources */,
 				B740D7401C8D0E460011E2BE /* GroupLeaderViewController.swift in Sources */,

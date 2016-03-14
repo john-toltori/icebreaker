@@ -193,6 +193,17 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="IceBreaker" backgroundImage="heading_bg"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMV-SE-kjR">
+                                <rect key="frame" x="11" y="11" width="50" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="1a4-Tl-Kpn"/>
+                                    <constraint firstAttribute="height" constant="45" id="q1l-Jx-LU7"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="menu"/>
+                                <connections>
+                                    <action selector="onMenuBtn_Click:" destination="87L-mf-E5r" eventType="touchUpInside" id="NPa-ax-gvI"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number in GROUP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCk-4j-C8p">
                                 <rect key="frame" x="20" y="82" width="560" height="21"/>
                                 <constraints>
@@ -366,6 +377,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wMV-SE-kjR" firstAttribute="leading" secondItem="0fV-Gg-l9s" secondAttribute="leadingMargin" constant="-9" id="1tS-Uq-AF5"/>
                             <constraint firstAttribute="topMargin" secondItem="Wj9-Go-mee" secondAttribute="top" id="2cK-L7-S15"/>
                             <constraint firstAttribute="trailing" secondItem="qCk-4j-C8p" secondAttribute="trailing" constant="20" id="6Fu-6U-FeQ"/>
                             <constraint firstItem="1lD-Bb-QNd" firstAttribute="trailing" secondItem="JEC-Va-CCx" secondAttribute="trailing" id="6hG-4g-Eee"/>
@@ -378,6 +390,7 @@
                             <constraint firstItem="qCk-4j-C8p" firstAttribute="top" secondItem="Wj9-Go-mee" secondAttribute="bottom" constant="14" id="IKE-jG-6Gk"/>
                             <constraint firstItem="qCk-4j-C8p" firstAttribute="leading" secondItem="0fV-Gg-l9s" secondAttribute="leading" constant="20" id="IRi-Lt-os1"/>
                             <constraint firstItem="1lD-Bb-QNd" firstAttribute="leading" secondItem="JEC-Va-CCx" secondAttribute="leading" id="MyD-Gf-9qe"/>
+                            <constraint firstItem="wMV-SE-kjR" firstAttribute="centerY" secondItem="Wj9-Go-mee" secondAttribute="centerY" id="RPd-Fh-tB8"/>
                             <constraint firstItem="WPR-z1-mr7" firstAttribute="top" secondItem="v8d-eO-DCK" secondAttribute="bottom" constant="15" id="T5T-aI-f7k"/>
                             <constraint firstItem="WW3-Rj-kHR" firstAttribute="centerY" secondItem="Wj9-Go-mee" secondAttribute="centerY" id="Yz5-2u-dKs"/>
                             <constraint firstItem="vkn-qp-UDv" firstAttribute="width" secondItem="0fV-Gg-l9s" secondAttribute="width" id="aMe-ki-TZ5"/>
@@ -411,6 +424,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jw5-1o-mTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1172" y="452"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="XOJ-6c-0Sq">
+            <objects>
+                <tableViewController storyboardIdentifier="MenuViewController" id="sfU-Hc-5bd" customClass="MenuViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="1kU-sQ-FTG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="sfU-Hc-5bd" id="FfQ-6J-7zI"/>
+                            <outlet property="delegate" destination="sfU-Hc-5bd" id="54r-8L-7i2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgq-VK-84p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="1165"/>
         </scene>
         <!--Begin View Controller-->
         <scene sceneID="OPJ-DY-rTQ">
@@ -1370,6 +1401,7 @@
         <image name="heading_bg" width="359" height="80"/>
         <image name="left_arrow" width="64" height="64"/>
         <image name="measure" width="256" height="256"/>
+        <image name="menu" width="141" height="122"/>
         <image name="next_btn_bg" width="142" height="39"/>
         <image name="right_arrow" width="64" height="64"/>
         <image name="twitter" width="75" height="71"/>
@@ -1377,6 +1409,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8bu-Ze-f8v"/>
-        <segue reference="aeC-Hz-h4A"/>
+        <segue reference="Txp-DW-dwa"/>
     </inferredMetricsTieBreakers>
 </document>

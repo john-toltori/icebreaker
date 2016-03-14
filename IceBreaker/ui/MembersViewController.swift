@@ -9,11 +9,14 @@
 import UIKit
 import MobileCoreServices
 
-class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, BLEDelegate {
+class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, BLEDelegate, ENSideMenuDelegate, MenuItemSelectProtocol {
 
     @IBOutlet weak var btnScan: UIButton!
     @IBOutlet weak var pvMemberCount: UIPickerView!
     @IBOutlet weak var tblMembers: UITableView!
+    var sideMenu: ENSideMenu! = nil
+    var menuVC: MenuViewController! = nil
+    
     var indexForImage: Int = 0
     var indexForMeasure: Int = 0
     var ble: BLE! = nil
@@ -25,6 +28,7 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Do any additional setup after loading the view.
         pvMemberCount.selectRow(Members.getInstance().count - 1, inComponent: 0, animated: true)
         initBLE()
+        initMenu()
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,6 +123,10 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
 
+    @IBAction func onMenuBtn_Click(sender: AnyObject) {
+        sideMenu.toggleMenu()
+    }
+    
     @IBAction func onScanBtn_Click(sender: AnyObject) {
         if ble.activePeripheral != nil && ble.activePeripheral.state == .Connected {
             ble.CM.cancelPeripheralConnection(ble.activePeripheral)
@@ -234,6 +242,49 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         devices = [BLEDevice]()
     }
     
+    func initMenu() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuVC = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+        self.menuVC.delegate = self
+        sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuVC, menuPosition:.Left)
+        sideMenu.delegate = self
+        sideMenu.menuWidth = 250.0
+        sideMenu.bouncingEnabled = true
+        sideMenu.allowPanGesture = true
+    }
+    
+    func onMenuItemSelected(index: Int) {
+        sideMenu.hideSideMenu()
+        
+        switch index {
+        case 1: // Disconnect.
+            if ble.activePeripheral != nil {
+                ble.CM.cancelPeripheralConnection(ble.activePeripheral)
+            }
+            break
+        default:
+            self.view.makeToast(message: "Menu item \(index) is selected!")
+            break
+        }
+    }
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+
     func bleDidConnect() {
         self.view.makeToast(message: "Connected to the sensor device.\nNow you can start measuring!")
     }
