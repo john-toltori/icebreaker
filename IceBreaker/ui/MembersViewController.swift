@@ -268,6 +268,9 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 ble.CM.cancelPeripheralConnection(ble.activePeripheral)
             }
             break
+        case 4:
+            exit(0)
+            break
         default:
             self.view.makeToast(message: "Not implemented yet!")
             break
