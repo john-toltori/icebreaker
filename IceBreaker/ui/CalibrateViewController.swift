@@ -1,28 +1,25 @@
 //
-//  MeasureViewController.swift
+//  CalibrateViewController.swift
 //  IceBreaker
 //
-//  Created by toltori on 3/7/16.
+//  Created by toltori on 3/14/16.
 //  Copyright © 2016 hyong. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessDelegate {
+class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDelegate, BLEDataProcessDelegate {
 
-    @IBOutlet weak var btnName: UIButton!
-    @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var txtSensorMax: UITextField!
+    @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var gvMeasureValue: LMGaugeView!
     @IBOutlet weak var cvMeasureValues: LineChartView!
-    @IBOutlet weak var lblSeconds: UILabel!
-    
-    var SENSOR_PIN: UInt8 = 19
-    let SENSOR_MAX_VALUE: UInt16 = 600
-    
-    var memberIndex = 0
-    var ble: BLE! = nil
 
+    var SENSOR_PIN: UInt8 = 19
+    
+    var ble: BLE! = nil
+    
     var rblProtocol: RBLProtocol! = nil
     var syncTimer: NSTimer! = nil
     var totalPinCount: UInt8 = 0
@@ -32,13 +29,13 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     var pinAnalog: [UInt16] = [UInt16](count: 128, repeatedValue: 600)
     var pinPwm: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
     var pinServo: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
-
-    let countDownLimit = 10         // 초단위.
+    
     let dataInputInterval = 0.5     // 초단위.
     var dataInputTimer: NSTimer! = nil
-    var countDownTimer: NSTimer! = nil
-    var countDownValue = 0
-    
+
+    var measuresSize = 10
+    var measures: [Int] = [Int]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,13 +43,13 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         initUI()
         initRBP()
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         self.view.makeToastActivity(message: "Initializing...")
         syncTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("onSyncTimer:"), userInfo: nil, repeats: false)
         rblProtocol.queryProtocolVersion()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,30 +66,22 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     }
     */
     
-    @IBAction func onStartBtn_Click(sender: AnyObject) {
-        //
-        // Countdown 시작.
-        //
-        if countDownTimer != nil {
-            countDownTimer.invalidate()
-        }
-        countDownValue = countDownLimit
-        countDownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onCountDownTimer:"), userInfo: nil, repeats: true)
-        btnStart.setTitle("Retest", forState: .Normal)
-        lblSeconds.text = "\(countDownValue)"
-        
-        //
-        // 자료 입력 시작.
-        //
-        if dataInputTimer != nil {
-            dataInputTimer.invalidate()
-        }
-        dataInputTimer = NSTimer.scheduledTimerWithTimeInterval(dataInputInterval, target: self, selector: Selector("onDataInputTimer:"), userInfo: nil, repeats: true)
-        Members.getInstance().members[memberIndex].measures.removeAll()
-        showMeasureValues()
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
-    @IBAction func onRetestBtn_Click(sender: AnyObject) {
+    @IBAction func onSaveBtn_Click(sender: AnyObject) {
+        if txtSensorMax.text == nil {
+            self.view.makeToast(message: "Please input sensor max!")
+            return
+        }
+        
+        let sensorMax = Int(txtSensorMax.text!)
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setInteger(sensorMax!, forKey: "sensor_max")
+        userDefaults.synchronize()
+        self.view.makeToast(message: "Saved sensor max value!")
     }
     
     @IBAction func onCloseBtn_Click(sender: AnyObject) {
@@ -100,54 +89,20 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         if dataInputTimer != nil {
             dataInputTimer.invalidate()
         }
-        if countDownTimer != nil {
-            countDownTimer.invalidate()
-        }
         if syncTimer != nil {
             syncTimer.invalidate()
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func onNextBtn_Click(sender: AnyObject) {
-        memberIndex = (memberIndex + 1) % Members.getInstance().count
-        initUI()
-    }
-    
-    func onCountDownTimer(timer: NSTimer) {
-        countDownValue--
-        lblSeconds.text = "\(countDownValue)"
-        if countDownValue == 0 {
-            //
-            // 10초동안의 자료 측정이 완성된 후.
-            //
-            countDownTimer.invalidate()
-            countDownTimer = nil
-            
-            btnStart.setTitle("Start", forState: .Normal)
-            
-            //
-            // 측정자료 입력은 중지.
-            //
-            if dataInputTimer != nil {
-                dataInputTimer.invalidate()
-            }
-        }
-    }
-    
     func onDataInputTimer(timer: NSTimer) {
-        //
-        // 측정자료 샘플링.
-        //
-        // [0..SENSOR_MAX_VALUE] -> [0..100]
         let sensorValue = pinAnalog[Int(SENSOR_PIN)];
-        var measureValue = Int(SENSOR_MAX_VALUE - sensorValue) * 100 / Int(SENSOR_MAX_VALUE)
-        if measureValue < 0 {
-            measureValue = 0
+
+        measures.append(Int(sensorValue))
+        if measures.count > measuresSize {
+            measures.removeFirst()
         }
-        //let measureValue = rand() % 100
-        Members.getInstance().members[memberIndex].measures.append(Int(measureValue))
-        gvMeasureValue.value = CGFloat(measureValue)
+        gvMeasureValue.value = CGFloat(sensorValue)
         showMeasureValues()
     }
     
@@ -158,13 +113,16 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
             ble.CM.cancelPeripheralConnection(ble.activePeripheral)
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1000000000)), dispatch_get_main_queue(), { () -> Void in
-            self.onCloseBtn_Click(self.btnName)
+            self.onCloseBtn_Click(self.btnClose)
         })
     }
     
-    
+
     func initUI() {
-        btnName.setTitle(Members.getInstance().members[memberIndex].name, forState: .Normal)
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let sensorMax = userDefaults.integerForKey("sensor_max")
+        txtSensorMax.text = "\(sensorMax)"
+        
         cvMeasureValues.descriptionText = ""
         cvMeasureValues.noDataTextDescription = "No measure!"
         cvMeasureValues.dragEnabled = false
@@ -173,7 +131,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         cvMeasureValues.drawGridBackgroundEnabled = false
         let leftAxis = cvMeasureValues.leftAxis
         leftAxis.customAxisMin = 0
-        leftAxis.customAxisMax = 100
+        leftAxis.customAxisMax = 1000
         leftAxis.gridLineDashLengths = [5.0, 5.0]
         leftAxis.drawZeroLineEnabled = true
         cvMeasureValues.rightAxis.enabled = false
@@ -184,7 +142,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     }
     
     func showMeasureValues() {
-        let xValsCount: Int = Int(Double(countDownLimit) / dataInputInterval)
+        let xValsCount: Int = measuresSize
         var xVals: [String] = [String]()
         for var i = 0; i < xValsCount; i++ {
             xVals.append("\(i)")
@@ -192,19 +150,19 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         
         var yVals: [ChartDataEntry] = [ChartDataEntry]()
         for var i = 0; i < xValsCount; i++ {
-            if i < Members.getInstance().members[memberIndex].measures.count {
-                yVals.append(ChartDataEntry(value: Double(Members.getInstance().members[memberIndex].measures[i]), xIndex: i))
+            if i < measures.count {
+                yVals.append(ChartDataEntry(value: Double(measures[i]), xIndex: i))
             }
         }
         
-        let lineChartDataSet = LineChartDataSet(yVals: yVals, label: "Measure values")
+        let lineChartDataSet = LineChartDataSet(yVals: yVals, label: "Sensor values")
         lineChartDataSet.lineDashLengths = [5.0, 2.5]
         lineChartDataSet.highlightLineDashLengths = [5.0, 2.5]
         lineChartDataSet.setColor(UIColor.blackColor())
         lineChartDataSet.lineWidth = 1.0
         lineChartDataSet.drawFilledEnabled = false
         lineChartDataSet.drawCirclesEnabled = false
-
+        
         let lineChartData = LineChartData(xVals: xVals, dataSet: lineChartDataSet)
         cvMeasureValues.data = lineChartData
     }
@@ -215,10 +173,19 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         rblProtocol.ble = ble
         
         BLEDataProcessor.getInstance().processor = self
+        startDataInput()
     }
     
     func uninitRBP() {
         BLEDataProcessor.getInstance().processor = nil
+    }
+    
+    func startDataInput() {
+        if dataInputTimer != nil {
+            dataInputTimer.invalidate()
+        }
+        dataInputTimer = NSTimer.scheduledTimerWithTimeInterval(dataInputInterval, target: self, selector: Selector("onDataInputTimer:"), userInfo: nil, repeats: true)
+        showMeasureValues()
     }
     
     func processData(data: UnsafeMutablePointer<UInt8>, length: Int32) {
@@ -228,7 +195,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     func bleDisconnected() {
         self.view.makeToast(message: "Disconnected from the sensor device!")
     }
-
+    
     func protocolDidReceiveProtocolVersion(major: UInt8, _ minor: UInt8, _ bugfix: UInt8) -> Void {
         self.view.hideToastActivity()
         syncTimer.invalidate()
@@ -271,4 +238,5 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     func protocolDidReceiveCustomData(data: UnsafeMutablePointer<UInt8>, _ length: UInt8) {
         // Custom data.
     }
+    
 }

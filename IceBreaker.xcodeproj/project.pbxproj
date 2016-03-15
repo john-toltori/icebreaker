@@ -37,6 +37,7 @@
 		B7A95BB11C8C5BE600E0F1F6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95BB01C8C5BE600E0F1F6 /* IntroViewController.swift */; };
 		B7A95BB31C8C5EBF00E0F1F6 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95BB21C8C5EBF00E0F1F6 /* MembersViewController.swift */; };
 		B7A95BB51C8C64E700E0F1F6 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95BB41C8C64E700E0F1F6 /* BeginViewController.swift */; };
+		B7D9B4841C965DE0001ECE8A /* CalibrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9B4831C965DE0001ECE8A /* CalibrateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		B7A95BB01C8C5BE600E0F1F6 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = ui/IntroViewController.swift; sourceTree = "<group>"; };
 		B7A95BB21C8C5EBF00E0F1F6 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MembersViewController.swift; path = ui/MembersViewController.swift; sourceTree = "<group>"; };
 		B7A95BB41C8C64E700E0F1F6 /* BeginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeginViewController.swift; path = ui/BeginViewController.swift; sourceTree = "<group>"; };
+		B7D9B4831C965DE0001ECE8A /* CalibrateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalibrateViewController.swift; path = ui/CalibrateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				B796EDE31C90501F00808C0D /* RBLDeviceCell.swift */,
 				B74D665D1C9158D700F5B5DF /* ResultCell.swift */,
 				B769E0BD1C96519F00E78629 /* MenuViewController.swift */,
+				B7D9B4831C965DE0001ECE8A /* CalibrateViewController.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				B74D665E1C9158D700F5B5DF /* ResultCell.swift in Sources */,
 				B796EDED1C90510C00808C0D /* BLE.m in Sources */,
 				B769E0BE1C96519F00E78629 /* MenuViewController.swift in Sources */,
+				B7D9B4841C965DE0001ECE8A /* CalibrateViewController.swift in Sources */,
 				B740D75D1C8D1B070011E2BE /* Members.swift in Sources */,
 				B796EDF01C90517500808C0D /* BLEDevice.swift in Sources */,
 				B740D7401C8D0E460011E2BE /* GroupLeaderViewController.swift in Sources */,

@@ -120,6 +120,9 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         } else if segue.identifier != nil && segue.identifier == "gotoBegin" {
             let vc = segue.destinationViewController as! BeginViewController
             vc.ble = self.ble
+        } else if segue.identifier != nil && segue.identifier == "gotoCalibrate" {
+            let vc = segue.destinationViewController as! CalibrateViewController
+            vc.ble = self.ble
         }
     }
 
@@ -257,13 +260,16 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         sideMenu.hideSideMenu()
         
         switch index {
+        case 0: // Calibrate.
+            self.performSegueWithIdentifier("gotoCalibrate", sender: self)
+            break
         case 1: // Disconnect.
             if ble.activePeripheral != nil {
                 ble.CM.cancelPeripheralConnection(ble.activePeripheral)
             }
             break
         default:
-            self.view.makeToast(message: "Menu item \(index) is selected!")
+            self.view.makeToast(message: "Not implemented yet!")
             break
         }
     }
