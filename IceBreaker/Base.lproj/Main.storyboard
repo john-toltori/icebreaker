@@ -1296,7 +1296,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <state key="normal" backgroundImage="right_arrow"/>
                                 <connections>
-                                    <segue destination="aKb-g2-JCo" kind="show" identifier="gotoShare" id="a7Z-b0-9UO"/>
+                                    <action selector="onShareBtn_Click:" destination="Ft5-zd-Fce" eventType="touchUpInside" id="wtR-IS-wko"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-Ac-HfK">
@@ -1359,6 +1359,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnShare" destination="z54-SI-doW" id="My5-JB-gNd"/>
                         <outlet property="ivProfileImage" destination="cyE-Ac-HfK" id="ihW-uH-tGx"/>
                         <outlet property="lblMessage1" destination="llv-rD-9mK" id="yeI-Og-IXb"/>
                         <outlet property="lblMessage2" destination="PLe-Ks-Ekf" id="zKi-O5-Tjt"/>

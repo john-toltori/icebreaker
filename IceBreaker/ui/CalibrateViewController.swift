@@ -16,7 +16,11 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
     @IBOutlet weak var gvMeasureValue: LMGaugeView!
     @IBOutlet weak var cvMeasureValues: LineChartView!
 
+    #if PIN19
     var SENSOR_PIN: UInt8 = 19
+    #elseif PIN18
+    var SENSOR_PIN: UInt8 = 18
+    #endif
     
     var ble: BLE! = nil
     
@@ -26,7 +30,7 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
     var pinMode: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
     var pinCap: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
     var pinDigital: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
-    var pinAnalog: [UInt16] = [UInt16](count: 128, repeatedValue: 600)
+    var pinAnalog: [UInt16] = [UInt16](count: 128, repeatedValue: 1000)
     var pinPwm: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
     var pinServo: [UInt8] = [UInt8](count: 128, repeatedValue: 0)
     

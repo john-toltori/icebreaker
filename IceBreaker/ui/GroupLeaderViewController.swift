@@ -14,6 +14,7 @@ class GroupLeaderViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblMessage1: UILabel!
     @IBOutlet weak var lblMessage2: UILabel!
+    @IBOutlet weak var btnShare: UIButton!
     
     var groupLeaderIndex: Int? = nil
     
@@ -33,6 +34,18 @@ class GroupLeaderViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func onShareBtn_Click(sender: AnyObject) {
+        let shareMessage = lblMessage1.text!
+        let shareImage: UIImage = ivProfileImage.image!
+//        let shareImage: UIImage = UIImage(named: "empty")!
+        
+        let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [(shareImage), shareMessage], applicationActivities: nil)
+        if shareVC.popoverPresentationController != nil {
+            shareVC.popoverPresentationController!.sourceView = btnShare
+        }
+        self.presentViewController(shareVC, animated: true, completion: nil)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

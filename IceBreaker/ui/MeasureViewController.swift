@@ -17,8 +17,13 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     @IBOutlet weak var cvMeasureValues: LineChartView!
     @IBOutlet weak var lblSeconds: UILabel!
     
+    #if PIN19
     var SENSOR_PIN: UInt8 = 19
-    let SENSOR_MAX_VALUE: UInt16 = 600
+    #elseif PIN18
+    var SENSOR_PIN: UInt8 = 18
+    #endif
+    
+    var SENSOR_MAX_VALUE: UInt16 = 600
     
     var memberIndex = 0
     var ble: BLE! = nil
@@ -215,6 +220,11 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         rblProtocol.ble = ble
         
         BLEDataProcessor.getInstance().processor = self
+        
+        let userDefauls = NSUserDefaults.standardUserDefaults()
+        if userDefauls.valueForKey("sensor_max") != nil {
+            SENSOR_MAX_VALUE = UInt16(userDefauls.integerForKey("sensor_max"))
+        }
     }
     
     func uninitRBP() {
