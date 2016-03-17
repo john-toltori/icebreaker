@@ -38,37 +38,6 @@
 		B72873061C98FFCB00CA07D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA61C8C56E900E0F1F6 /* LaunchScreen.storyboard */; };
 		B72873071C98FFCB00CA07D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA41C8C56E900E0F1F6 /* Assets.xcassets */; };
 		B72873081C98FFCB00CA07D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA11C8C56E900E0F1F6 /* Main.storyboard */; };
-		B73FECC31C8D611E003A9382 /* LMGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B73FECBE1C8D611E003A9382 /* LMGaugeView.m */; };
-		B73FED141C8D69F0003A9382 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73FED131C8D69F0003A9382 /* CoreData.framework */; };
-		B740D7331C8D048F0011E2BE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B740D7321C8D048F0011E2BE /* Charts.framework */; };
-		B740D7381C8D0DF20011E2BE /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D7371C8D0DF20011E2BE /* MeasureViewController.swift */; };
-		B740D73A1C8D0E0B0011E2BE /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D7391C8D0E0B0011E2BE /* ResultsViewController.swift */; };
-		B740D73C1C8D0E210011E2BE /* CalculationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D73B1C8D0E210011E2BE /* CalculationsViewController.swift */; };
-		B740D73E1C8D0E330011E2BE /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D73D1C8D0E330011E2BE /* ProcessingViewController.swift */; };
-		B740D7401C8D0E460011E2BE /* GroupLeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D73F1C8D0E460011E2BE /* GroupLeaderViewController.swift */; };
-		B740D7421C8D0E560011E2BE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D7411C8D0E560011E2BE /* ShareViewController.swift */; };
-		B740D75B1C8D1A950011E2BE /* MemberInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D75A1C8D1A950011E2BE /* MemberInfo.swift */; };
-		B740D75D1C8D1B070011E2BE /* Members.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D75C1C8D1B070011E2BE /* Members.swift */; };
-		B740D7601C8D264A0011E2BE /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D75F1C8D264A0011E2BE /* MemberCell.swift */; };
-		B74D665E1C9158D700F5B5DF /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D665D1C9158D700F5B5DF /* ResultCell.swift */; };
-		B769E0BC1C964EBC00E78629 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769E0BB1C964EBC00E78629 /* ENSideMenu.swift */; };
-		B769E0BE1C96519F00E78629 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769E0BD1C96519F00E78629 /* MenuViewController.swift */; };
-		B796EDE21C904FF200808C0D /* RBLDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE11C904FF200808C0D /* RBLDevicesViewController.swift */; };
-		B796EDE41C90501F00808C0D /* RBLDeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE31C90501F00808C0D /* RBLDeviceCell.swift */; };
-		B796EDED1C90510C00808C0D /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE81C90510C00808C0D /* BLE.m */; };
-		B796EDEE1C90510C00808C0D /* RBLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B796EDEC1C90510C00808C0D /* RBLProtocol.m */; };
-		B796EDF01C90517500808C0D /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDEF1C90517500808C0D /* BLEDevice.swift */; };
-		B796EDF31C90561F00808C0D /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDF21C90561F00808C0D /* HRToast+UIView.swift */; };
-		B796EDF51C905C8F00808C0D /* BLEDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDF41C905C8F00808C0D /* BLEDataProcessor.swift */; };
-		B796EDF71C905E8700808C0D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B796EDF61C905E8600808C0D /* CoreBluetooth.framework */; };
-		B7A95B9E1C8C56E800E0F1F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95B9D1C8C56E800E0F1F6 /* AppDelegate.swift */; };
-		B7A95BA31C8C56E900E0F1F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA11C8C56E900E0F1F6 /* Main.storyboard */; };
-		B7A95BA51C8C56E900E0F1F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA41C8C56E900E0F1F6 /* Assets.xcassets */; };
-		B7A95BA81C8C56E900E0F1F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA61C8C56E900E0F1F6 /* LaunchScreen.storyboard */; };
-		B7A95BB11C8C5BE600E0F1F6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95BB01C8C5BE600E0F1F6 /* IntroViewController.swift */; };
-		B7A95BB31C8C5EBF00E0F1F6 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95BB21C8C5EBF00E0F1F6 /* MembersViewController.swift */; };
-		B7A95BB51C8C64E700E0F1F6 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95BB41C8C64E700E0F1F6 /* BeginViewController.swift */; };
-		B7D9B4841C965DE0001ECE8A /* CalibrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9B4831C965DE0001ECE8A /* CalibrateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,7 +71,6 @@
 		B796EDF21C90561F00808C0D /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		B796EDF41C905C8F00808C0D /* BLEDataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BLEDataProcessor.swift; path = data/BLEDataProcessor.swift; sourceTree = "<group>"; };
 		B796EDF61C905E8600808C0D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		B7A95B9A1C8C56E800E0F1F6 /* IceBreaker 19 pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IceBreaker 19 pin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A95B9D1C8C56E800E0F1F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7A95BA21C8C56E900E0F1F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7A95BA41C8C56E900E0F1F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,16 +90,6 @@
 				B72873021C98FFCB00CA07D8 /* CoreBluetooth.framework in Frameworks */,
 				B72873031C98FFCB00CA07D8 /* CoreData.framework in Frameworks */,
 				B72873041C98FFCB00CA07D8 /* Charts.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7A95B971C8C56E800E0F1F6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B796EDF71C905E8700808C0D /* CoreBluetooth.framework in Frameworks */,
-				B73FED141C8D69F0003A9382 /* CoreData.framework in Frameworks */,
-				B740D7331C8D048F0011E2BE /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +187,6 @@
 		B7A95B9B1C8C56E800E0F1F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B7A95B9A1C8C56E800E0F1F6 /* IceBreaker 19 pin.app */,
 				B728730D1C98FFCB00CA07D8 /* IceBreaker 18 pin.app */,
 			);
 			name = Products;
@@ -293,24 +250,6 @@
 			productReference = B728730D1C98FFCB00CA07D8 /* IceBreaker 18 pin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B7A95B991C8C56E800E0F1F6 /* IceBreaker 19 pin */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7A95BAC1C8C56E900E0F1F6 /* Build configuration list for PBXNativeTarget "IceBreaker 19 pin" */;
-			buildPhases = (
-				B7A95B961C8C56E800E0F1F6 /* Sources */,
-				B7A95B971C8C56E800E0F1F6 /* Frameworks */,
-				B7A95B981C8C56E800E0F1F6 /* Resources */,
-				B740D7431C8D10420011E2BE /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "IceBreaker 19 pin";
-			productName = IceBreaker;
-			productReference = B7A95B9A1C8C56E800E0F1F6 /* IceBreaker 19 pin.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -322,10 +261,6 @@
 				ORGANIZATIONNAME = hyong;
 				TargetAttributes = {
 					B72872E61C98FFCB00CA07D8 = {
-						DevelopmentTeam = 297W668PXG;
-					};
-					B7A95B991C8C56E800E0F1F6 = {
-						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 297W668PXG;
 					};
 				};
@@ -343,7 +278,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B7A95B991C8C56E800E0F1F6 /* IceBreaker 19 pin */,
 				B72872E61C98FFCB00CA07D8 /* IceBreaker 18 pin */,
 			);
 		};
@@ -360,34 +294,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B7A95B981C8C56E800E0F1F6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7A95BA81C8C56E900E0F1F6 /* LaunchScreen.storyboard in Resources */,
-				B7A95BA51C8C56E900E0F1F6 /* Assets.xcassets in Resources */,
-				B7A95BA31C8C56E900E0F1F6 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		B72873091C98FFCB00CA07D8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		B740D7431C8D10420011E2BE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -433,38 +343,6 @@
 				B72872FE1C98FFCB00CA07D8 /* MemberInfo.swift in Sources */,
 				B72872FF1C98FFCB00CA07D8 /* RBLDeviceCell.swift in Sources */,
 				B72873001C98FFCB00CA07D8 /* RBLDevicesViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7A95B961C8C56E800E0F1F6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B769E0BC1C964EBC00E78629 /* ENSideMenu.swift in Sources */,
-				B740D7381C8D0DF20011E2BE /* MeasureViewController.swift in Sources */,
-				B73FECC31C8D611E003A9382 /* LMGaugeView.m in Sources */,
-				B740D73C1C8D0E210011E2BE /* CalculationsViewController.swift in Sources */,
-				B7A95BB31C8C5EBF00E0F1F6 /* MembersViewController.swift in Sources */,
-				B74D665E1C9158D700F5B5DF /* ResultCell.swift in Sources */,
-				B796EDED1C90510C00808C0D /* BLE.m in Sources */,
-				B769E0BE1C96519F00E78629 /* MenuViewController.swift in Sources */,
-				B7D9B4841C965DE0001ECE8A /* CalibrateViewController.swift in Sources */,
-				B740D75D1C8D1B070011E2BE /* Members.swift in Sources */,
-				B796EDF01C90517500808C0D /* BLEDevice.swift in Sources */,
-				B740D7401C8D0E460011E2BE /* GroupLeaderViewController.swift in Sources */,
-				B740D73E1C8D0E330011E2BE /* ProcessingViewController.swift in Sources */,
-				B796EDEE1C90510C00808C0D /* RBLProtocol.m in Sources */,
-				B796EDF51C905C8F00808C0D /* BLEDataProcessor.swift in Sources */,
-				B740D7421C8D0E560011E2BE /* ShareViewController.swift in Sources */,
-				B7A95BB51C8C64E700E0F1F6 /* BeginViewController.swift in Sources */,
-				B7A95BB11C8C5BE600E0F1F6 /* IntroViewController.swift in Sources */,
-				B7A95B9E1C8C56E800E0F1F6 /* AppDelegate.swift in Sources */,
-				B740D7601C8D264A0011E2BE /* MemberCell.swift in Sources */,
-				B740D73A1C8D0E0B0011E2BE /* ResultsViewController.swift in Sources */,
-				B796EDF31C90561F00808C0D /* HRToast+UIView.swift in Sources */,
-				B740D75B1C8D1A950011E2BE /* MemberInfo.swift in Sources */,
-				B796EDE41C90501F00808C0D /* RBLDeviceCell.swift in Sources */,
-				B796EDE21C904FF200808C0D /* RBLDevicesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,48 +491,6 @@
 			};
 			name = Release;
 		};
-		B7A95BAD1C8C56E900E0F1F6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/IceBreaker/libs/MetaWear/Metawear-iOSAPI",
-				);
-				HEADER_SEARCH_PATHS = "IceBreaker/libs/MetaWear/**";
-				INFOPLIST_FILE = IceBreaker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D PIN19";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyong.IceBreaker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = IceBreaker/libs/bridging.h;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B7A95BAE1C8C56E900E0F1F6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/IceBreaker/libs/MetaWear/Metawear-iOSAPI",
-				);
-				HEADER_SEARCH_PATHS = "IceBreaker/libs/MetaWear/**";
-				INFOPLIST_FILE = IceBreaker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D PIN19";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyong.IceBreaker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = IceBreaker/libs/bridging.h;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -672,15 +508,6 @@
 			buildConfigurations = (
 				B7A95BAA1C8C56E900E0F1F6 /* Debug */,
 				B7A95BAB1C8C56E900E0F1F6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7A95BAC1C8C56E900E0F1F6 /* Build configuration list for PBXNativeTarget "IceBreaker 19 pin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7A95BAD1C8C56E900E0F1F6 /* Debug */,
-				B7A95BAE1C8C56E900E0F1F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

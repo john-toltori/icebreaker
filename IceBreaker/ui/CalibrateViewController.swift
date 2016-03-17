@@ -11,8 +11,8 @@ import Charts
 
 class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDelegate, BLEDataProcessDelegate {
 
+    @IBOutlet weak var btnClose: UIBarButtonItem!
     @IBOutlet weak var txtSensorMax: UITextField!
-    @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var gvMeasureValue: LMGaugeView!
     @IBOutlet weak var cvMeasureValues: LineChartView!
 
@@ -96,7 +96,7 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
         if syncTimer != nil {
             syncTimer.invalidate()
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popViewControllerAnimated(true)
     }
     
     func onDataInputTimer(timer: NSTimer) {
@@ -123,6 +123,8 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
     
 
     func initUI() {
+        self.navigationItem.hidesBackButton = true
+        
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let sensorMax = userDefaults.integerForKey("sensor_max")
         txtSensorMax.text = "\(sensorMax)"

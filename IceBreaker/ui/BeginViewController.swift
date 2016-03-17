@@ -34,10 +34,6 @@ class BeginViewController: UIViewController {
             vc.ble = self.ble
         }
     }
-
-    @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     @IBAction func onNextBtn_Click(sender: AnyObject) {
         self.performSegueWithIdentifier("gotoMeasure", sender: self)

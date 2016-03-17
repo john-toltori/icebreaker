@@ -14,7 +14,7 @@ class GroupLeaderViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblMessage1: UILabel!
     @IBOutlet weak var lblMessage2: UILabel!
-    @IBOutlet weak var btnShare: UIButton!
+    @IBOutlet weak var btnShare: UIBarButtonItem!
     
     var groupLeaderIndex: Int? = nil
     
@@ -30,10 +30,6 @@ class GroupLeaderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-
     @IBAction func onShareBtn_Click(sender: AnyObject) {
         let shareMessage = lblMessage1.text!
         let shareImage: UIImage = ivProfileImage.image!
@@ -41,7 +37,7 @@ class GroupLeaderViewController: UIViewController {
         
         let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [(shareImage), shareMessage], applicationActivities: nil)
         if shareVC.popoverPresentationController != nil {
-            shareVC.popoverPresentationController!.sourceView = btnShare
+            shareVC.popoverPresentationController!.sourceView = btnShare.valueForKey("view") as? UIView
         }
         self.presentViewController(shareVC, animated: true, completion: nil)
     }
@@ -64,7 +60,7 @@ class GroupLeaderViewController: UIViewController {
             lblMessage1.text = "\(leader.name) has been selected as your GRUOP LEADER based on analysis of the teams individual GSR measurements."
             lblMessage2.text = "Please keep in mind that \(leader.name) could have had the hands with the most SWEAT :)"
         } else {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.navigationController!.popViewControllerAnimated(true)
         }
     }
 }

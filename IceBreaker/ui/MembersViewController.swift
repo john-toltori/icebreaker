@@ -11,7 +11,7 @@ import MobileCoreServices
 
 class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, BLEDelegate, ENSideMenuDelegate, MenuItemSelectProtocol {
 
-    @IBOutlet weak var btnScan: UIButton!
+    @IBOutlet weak var btnScan: UIBarButtonItem!
     @IBOutlet weak var pvMemberCount: UIPickerView!
     @IBOutlet weak var tblMembers: UITableView!
     var sideMenu: ENSideMenu! = nil
@@ -204,9 +204,6 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         } else {
             self.view.makeToast(message: "Please connect to the sensor device!")
         }
-//        if verifyMembersProfile() {
-//            self.performSegueWithIdentifier("gotoBegin", sender: self)
-//        }
     }
     
     @IBAction func onResultsBtn_Click(sender: AnyObject) {
@@ -249,7 +246,7 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.menuVC = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
         self.menuVC.delegate = self
-        sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuVC, menuPosition:.Left)
+        sideMenu = ENSideMenu(sourceView: UIApplication.sharedApplication().keyWindow!, menuViewController: menuVC, menuPosition:.Left)
         sideMenu.delegate = self
         sideMenu.menuWidth = 250.0
         sideMenu.bouncingEnabled = true

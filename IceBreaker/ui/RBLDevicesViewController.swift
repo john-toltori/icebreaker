@@ -22,6 +22,7 @@ class RBLDevicesViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.hidesBackButton = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +58,7 @@ class RBLDevicesViewController: UITableViewController {
         if ble.peripherals != nil && ble.peripherals.count > indexPath.row {
             ble.connectPeripheral(ble.peripherals[indexPath.row] as! CBPeripheral)
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popViewControllerAnimated(true)
     }
 
     /*
@@ -71,6 +72,6 @@ class RBLDevicesViewController: UITableViewController {
     */
 
     @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popViewControllerAnimated(true)
     }
 }

@@ -53,10 +53,6 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 
-    @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     @IBAction func onNextBtn_Click(sender: AnyObject) {
         self.performSegueWithIdentifier("gotoGroupLeader", sender: self)
     }

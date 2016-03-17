@@ -11,7 +11,6 @@ import Charts
 
 class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessDelegate {
 
-    @IBOutlet weak var btnName: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var gvMeasureValue: LMGaugeView!
     @IBOutlet weak var cvMeasureValues: LineChartView!
@@ -111,7 +110,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         if syncTimer != nil {
             syncTimer.invalidate()
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popViewControllerAnimated(true)
     }
     
     @IBAction func onNextBtn_Click(sender: AnyObject) {
@@ -163,13 +162,14 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
             ble.CM.cancelPeripheralConnection(ble.activePeripheral)
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1000000000)), dispatch_get_main_queue(), { () -> Void in
-            self.onCloseBtn_Click(self.btnName)
+            self.onCloseBtn_Click(self.btnStart)
         })
     }
     
     
     func initUI() {
-        btnName.setTitle(Members.getInstance().members[memberIndex].name, forState: .Normal)
+        self.title = Members.getInstance().members[memberIndex].name
+        self.navigationItem.hidesBackButton = true
         cvMeasureValues.descriptionText = ""
         cvMeasureValues.noDataTextDescription = "No measure!"
         cvMeasureValues.dragEnabled = false
