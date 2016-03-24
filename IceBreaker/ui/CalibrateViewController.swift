@@ -19,7 +19,7 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
     #if PIN19
     var SENSOR_PIN: UInt8 = 19
     #elseif PIN18
-    var SENSOR_PIN: UInt8 = 18
+    var SENSOR_PIN: UInt8 = 11
     #endif
     
     var ble: BLE! = nil

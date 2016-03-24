@@ -36,8 +36,17 @@ class GroupLeaderViewController: UIViewController {
 
     @IBAction func onShareBtn_Click(sender: AnyObject) {
         let shareMessage = lblMessage1.text!
-        let shareImage: UIImage = ivProfileImage.image!
-//        let shareImage: UIImage = UIImage(named: "empty")!
+//        let shareImage: UIImage = ivProfileImage.image!
+        
+        //
+        // [2016/03/24 23:26 KSH]Screen shot.
+        //
+        UIGraphicsBeginImageContext(self.view.bounds.size);
+        let context = UIGraphicsGetCurrentContext();
+        self.view.layer.renderInContext(context!)
+        let screenShot = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        let shareImage: UIImage = screenShot//UIImage(named: "empty")!
         
         let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [(shareImage), shareMessage], applicationActivities: nil)
         if shareVC.popoverPresentationController != nil {

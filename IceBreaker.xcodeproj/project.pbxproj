@@ -72,7 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B728730D1C98FFCB00CA07D8 /* IceBreaker 18 pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IceBreaker 18 pin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B728730D1C98FFCB00CA07D8 /* IceBreaker 11 pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IceBreaker 11 pin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B728730E1C98FFCD00CA07D8 /* IceBreaker copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "IceBreaker copy-Info.plist"; path = "/Users/toltori/Documents/Work/Develop/Freelancer/icebreaker_src_remote/IceBreaker copy-Info.plist"; sourceTree = "<absolute>"; };
 		B73FECBB1C8D611E003A9382 /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		B73FECBD1C8D611E003A9382 /* LMGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMGaugeView.h; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A95B9A1C8C56E800E0F1F6 /* IceBreaker 19 pin.app */,
-				B728730D1C98FFCB00CA07D8 /* IceBreaker 18 pin.app */,
+				B728730D1C98FFCB00CA07D8 /* IceBreaker 11 pin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,9 +275,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B72872E61C98FFCB00CA07D8 /* IceBreaker 18 pin */ = {
+		B72872E61C98FFCB00CA07D8 /* IceBreaker 11 pin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B728730A1C98FFCB00CA07D8 /* Build configuration list for PBXNativeTarget "IceBreaker 18 pin" */;
+			buildConfigurationList = B728730A1C98FFCB00CA07D8 /* Build configuration list for PBXNativeTarget "IceBreaker 11 pin" */;
 			buildPhases = (
 				B72872E71C98FFCB00CA07D8 /* Sources */,
 				B72873011C98FFCB00CA07D8 /* Frameworks */,
@@ -288,9 +288,9 @@
 			);
 			dependencies = (
 			);
-			name = "IceBreaker 18 pin";
+			name = "IceBreaker 11 pin";
 			productName = IceBreaker;
-			productReference = B728730D1C98FFCB00CA07D8 /* IceBreaker 18 pin.app */;
+			productReference = B728730D1C98FFCB00CA07D8 /* IceBreaker 11 pin.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B7A95B991C8C56E800E0F1F6 /* IceBreaker 19 pin */ = {
@@ -344,7 +344,7 @@
 			projectRoot = "";
 			targets = (
 				B7A95B991C8C56E800E0F1F6 /* IceBreaker 19 pin */,
-				B72872E61C98FFCB00CA07D8 /* IceBreaker 18 pin */,
+				B72872E61C98FFCB00CA07D8 /* IceBreaker 11 pin */,
 			);
 		};
 /* End PBXProject section */
@@ -504,7 +504,7 @@
 				INFOPLIST_FILE = "IceBreaker copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D PIN18";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hyong.IceBreaker-18";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hyong.IceBreaker-11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = IceBreaker/libs/bridging.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,7 +525,7 @@
 				INFOPLIST_FILE = "IceBreaker copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D PIN18";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hyong.IceBreaker-18";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hyong.IceBreaker-11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = IceBreaker/libs/bridging.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -658,7 +658,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B728730A1C98FFCB00CA07D8 /* Build configuration list for PBXNativeTarget "IceBreaker 18 pin" */ = {
+		B728730A1C98FFCB00CA07D8 /* Build configuration list for PBXNativeTarget "IceBreaker 11 pin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B728730B1C98FFCB00CA07D8 /* Debug */,

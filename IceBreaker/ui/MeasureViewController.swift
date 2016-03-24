@@ -20,7 +20,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     #if PIN19
     var SENSOR_PIN: UInt8 = 19
     #elseif PIN18
-    var SENSOR_PIN: UInt8 = 18
+    var SENSOR_PIN: UInt8 = 11
     #endif
     
     var SENSOR_MAX_VALUE: UInt16 = 600

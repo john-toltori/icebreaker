@@ -10,7 +10,7 @@
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,7 +45,7 @@
         <!--Devices View Controller-->
         <scene sceneID="i5N-wn-qVi">
             <objects>
-                <tableViewController id="LsU-qm-mKe" customClass="RBLDevicesViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="LsU-qm-mKe" customClass="RBLDevicesViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fd7-NO-QVp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RBLDeviceCell" rowHeight="68" id="srX-CC-tZQ" customClass="RBLDeviceCell" customModule="IceBreaker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RBLDeviceCell" rowHeight="68" id="srX-CC-tZQ" customClass="RBLDeviceCell" customModule="IceBreaker_11_pin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="96" width="600" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="srX-CC-tZQ" id="q0T-RA-LN8">
@@ -173,7 +173,7 @@
         <!--Members View Controller-->
         <scene sceneID="ZAL-U1-aaD">
             <objects>
-                <viewController id="87L-mf-E5r" customClass="MembersViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="87L-mf-E5r" customClass="MembersViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yOi-57-6ja"/>
                         <viewControllerLayoutGuide type="bottom" id="L0b-Qg-grg"/>
@@ -237,7 +237,7 @@
                                 <rect key="frame" x="20" y="270" width="560" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberCell" rowHeight="88" id="wba-au-jlM" customClass="MemberCell" customModule="IceBreaker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberCell" rowHeight="88" id="wba-au-jlM" customClass="MemberCell" customModule="IceBreaker_11_pin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wba-au-jlM" id="GjF-Rl-toc">
@@ -429,7 +429,7 @@
         <!--Menu View Controller-->
         <scene sceneID="XOJ-6c-0Sq">
             <objects>
-                <tableViewController storyboardIdentifier="MenuViewController" id="sfU-Hc-5bd" customClass="MenuViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuViewController" id="sfU-Hc-5bd" customClass="MenuViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="1kU-sQ-FTG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -447,7 +447,7 @@
         <!--Calibrate View Controller-->
         <scene sceneID="QWC-wu-Gxx">
             <objects>
-                <viewController id="Eht-Ky-YwK" customClass="CalibrateViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Eht-Ky-YwK" customClass="CalibrateViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8fc-Sc-1tj"/>
                         <viewControllerLayoutGuide type="bottom" id="zxl-aq-trr"/>
@@ -597,7 +597,7 @@
         <!--Begin View Controller-->
         <scene sceneID="OPJ-DY-rTQ">
             <objects>
-                <viewController id="0WA-77-qDH" customClass="BeginViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0WA-77-qDH" customClass="BeginViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VEk-ke-dK4"/>
                         <viewControllerLayoutGuide type="bottom" id="kTb-fm-PLW"/>
@@ -731,7 +731,7 @@
         <!--Measure View Controller-->
         <scene sceneID="n1U-Hu-U1D">
             <objects>
-                <viewController id="vLZ-Qd-Fw2" customClass="MeasureViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vLZ-Qd-Fw2" customClass="MeasureViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jbW-f5-49Q"/>
                         <viewControllerLayoutGuide type="bottom" id="p72-y3-q5k"/>
@@ -904,7 +904,7 @@
         <!--Results View Controller-->
         <scene sceneID="jXI-Qr-v7Y">
             <objects>
-                <viewController id="WJS-IR-Hc8" customClass="ResultsViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WJS-IR-Hc8" customClass="ResultsViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vhd-ey-OCw"/>
                         <viewControllerLayoutGuide type="bottom" id="gjH-Sd-NrP"/>
@@ -928,7 +928,7 @@
                                 <rect key="frame" x="20" y="88" width="560" height="429"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultCell" rowHeight="90" id="LGl-Ex-Yvk" customClass="ResultCell" customModule="IceBreaker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultCell" rowHeight="90" id="LGl-Ex-Yvk" customClass="ResultCell" customModule="IceBreaker_11_pin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LGl-Ex-Yvk" id="wNr-I6-S00">
@@ -1049,7 +1049,7 @@
         <!--Calculations View Controller-->
         <scene sceneID="bMr-XP-DZD">
             <objects>
-                <viewController id="ost-PH-ZRe" customClass="CalculationsViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ost-PH-ZRe" customClass="CalculationsViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ctP-VT-jNp"/>
                         <viewControllerLayoutGuide type="bottom" id="dpx-4M-KBg"/>
@@ -1187,7 +1187,7 @@
         <!--Processing View Controller-->
         <scene sceneID="nwA-03-QCU">
             <objects>
-                <viewController id="iCC-2c-oVV" customClass="ProcessingViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iCC-2c-oVV" customClass="ProcessingViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A8o-B0-Rse"/>
                         <viewControllerLayoutGuide type="bottom" id="jG3-kg-WZR"/>
@@ -1248,7 +1248,7 @@
         <!--Group Leader View Controller-->
         <scene sceneID="eWh-3g-KRE">
             <objects>
-                <viewController id="Ft5-zd-Fce" customClass="GroupLeaderViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ft5-zd-Fce" customClass="GroupLeaderViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1hh-59-JuQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Ymz-4a-NGT"/>
@@ -1299,7 +1299,7 @@
                                     <action selector="onShareBtn_Click:" destination="Ft5-zd-Fce" eventType="touchUpInside" id="wtR-IS-wko"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-Ac-HfK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-Ac-HfK">
                                 <rect key="frame" x="180" y="82" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cyE-Ac-HfK" secondAttribute="height" multiplier="15:8" id="4zB-85-NKf"/>
@@ -1373,7 +1373,7 @@
         <!--Share View Controller-->
         <scene sceneID="4U3-O2-nnL">
             <objects>
-                <viewController id="aKb-g2-JCo" customClass="ShareViewController" customModule="IceBreaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aKb-g2-JCo" customClass="ShareViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ald-Nm-mjx"/>
                         <viewControllerLayoutGuide type="bottom" id="OSx-2q-UE1"/>
