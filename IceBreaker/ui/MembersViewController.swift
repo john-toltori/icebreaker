@@ -9,18 +9,14 @@
 import UIKit
 import MobileCoreServices
 
-class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, BLEDelegate, ENSideMenuDelegate, MenuItemSelectProtocol {
+class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, BLEDelegate {
 
-    @IBOutlet weak var btnScan: UIButton!
     @IBOutlet weak var pvMemberCount: UIPickerView!
     @IBOutlet weak var tblMembers: UITableView!
-    var sideMenu: ENSideMenu! = nil
-    var menuVC: MenuViewController! = nil
     
     var indexForImage: Int = 0
     var indexForMeasure: Int = 0
     var ble: BLE! = nil
-    var devices: [BLEDevice]! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +24,6 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Do any additional setup after loading the view.
         pvMemberCount.selectRow(Members.getInstance().count - 1, inComponent: 0, animated: true)
         initBLE()
-        initMenu()
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,87 +104,16 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier != nil && segue.identifier == "gotoRBLDeviceList" {
-            let vc = segue.destinationViewController as! RBLDevicesViewController
-            vc.ble = self.ble
-            vc.devices = self.devices
-        } else if segue.identifier != nil && segue.identifier == "gotoMeasure" {
+        if segue.identifier != nil && segue.identifier == "gotoMeasure" {
             let vc = segue.destinationViewController as! MeasureViewController
             vc.memberIndex = indexForMeasure
             vc.ble = self.ble
         } else if segue.identifier != nil && segue.identifier == "gotoBegin" {
             let vc = segue.destinationViewController as! BeginViewController
             vc.ble = self.ble
-        } else if segue.identifier != nil && segue.identifier == "gotoCalibrate" {
-            let vc = segue.destinationViewController as! CalibrateViewController
-            vc.ble = self.ble
         }
     }
 
-    @IBAction func onMenuBtn_Click(sender: AnyObject) {
-        sideMenu.toggleMenu()
-    }
-    
-    @IBAction func onScanBtn_Click(sender: AnyObject) {
-        if ble.activePeripheral != nil && ble.activePeripheral.state == .Connected {
-            ble.CM.cancelPeripheralConnection(ble.activePeripheral)
-        }
-        
-        if ble.peripherals != nil {
-            ble.peripherals = nil
-        }
-        
-        btnScan.enabled = false
-        ble.findBLEPeripherals(3)
-        self.view.makeToastActivity(message: "Scanning...")
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("onScanTimer:"), userInfo: nil, repeats: false)
-    }
-    
-    func onScanTimer(timer: NSTimer) {
-        btnScan.enabled = true
-        self.view.hideToastActivity()
-        devices.removeAll()
-        if ble.peripherals != nil && ble.peripherals.count > 0 {
-            
-            for var i = 0; i < ble.peripherals.count; i++ {
-                let p = ble.peripherals[i] as! CBPeripheral
-                let device = BLEDevice()
-                
-                device.uuid = p.identifier.UUIDString
-                
-                if let name = p.name {
-                    device.name = name
-                } else {
-                    device.name = "RedBear Device(1)"
-                }
-                
-                devices.append(device)
-            }
-            
-            //
-            // Goto the device list view.
-            //
-            self.performSegueWithIdentifier("gotoRBLDeviceList", sender: self)
-        } else {
-            
-//            //
-//            // test.
-//            //
-//            for var i = 0; i < 3; i++ {
-//                let dev = BLEDevice()
-//                dev.name = "device_\(i+1)"
-//                dev.uuid = "uuid_\(i+1)"
-//                devices.append(dev)
-//            }
-//            //
-//            // Goto the device list view.
-//            //
-//            self.performSegueWithIdentifier("gotoRBLDeviceList", sender: self)
-
-            self.view.makeToast(message: "No BLE Device(s) found.")
-        }
-    }
-    
     @IBAction func onNextBtn_Click(sender: AnyObject) {
         //
         // [2016/03/09 21:25 KSH]Check if the sensor device is connected
@@ -242,56 +166,8 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         ble.delegate = self
         ble.controlSetup()
         
-        devices = [BLEDevice]()
-    }
-    
-    func initMenu() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.menuVC = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
-        self.menuVC.delegate = self
-        sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuVC, menuPosition:.Left)
-        sideMenu.delegate = self
-        sideMenu.menuWidth = 250.0
-        sideMenu.bouncingEnabled = true
-        sideMenu.allowPanGesture = true
-    }
-    
-    func onMenuItemSelected(index: Int) {
-        sideMenu.hideSideMenu()
-        
-        switch index {
-        case 0: // Calibrate.
-            self.performSegueWithIdentifier("gotoCalibrate", sender: self)
-            break
-        case 1: // Disconnect.
-            if ble.activePeripheral != nil {
-                ble.CM.cancelPeripheralConnection(ble.activePeripheral)
-            }
-            break
-        case 4:
-            exit(0)
-            break
-        default:
-            self.view.makeToast(message: "Not implemented yet!")
-            break
-        }
-    }
-    
-    // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        print("sideMenuWillOpen")
-    }
-    
-    func sideMenuWillClose() {
-        print("sideMenuWillClose")
-    }
-    
-    func sideMenuDidClose() {
-        print("sideMenuDidClose")
-    }
-    
-    func sideMenuDidOpen() {
-        print("sideMenuDidOpen")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.ble = ble
     }
 
     func bleDidConnect() {
@@ -306,7 +182,7 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func bleDidReceiveData(data: UnsafeMutablePointer<UInt8>, length: Int32) {
-        self.view.makeToast(message: "Received data from the sensor device!")
+        //self.view.makeToast(message: "Received data from the sensor device!")
         if let processor = BLEDataProcessor.getInstance().processor {
             processor.processData(data, length: length)
         }

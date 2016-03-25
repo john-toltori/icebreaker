@@ -1,14 +1,14 @@
 //
-//  IntroViewController.swift
+//  MainViewController.swift
 //  IceBreaker
 //
-//  Created by toltori on 3/6/16.
+//  Created by toltori on 3/26/16.
 //  Copyright © 2016 hyong. All rights reserved.
 //
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +31,8 @@ class IntroViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func onViewClick(sender: AnyObject) {
-        self.performSegueWithIdentifier("gotoMain", sender: self)
-    }
 
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        
+    }
 }

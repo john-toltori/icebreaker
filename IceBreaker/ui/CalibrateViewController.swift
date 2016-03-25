@@ -12,7 +12,6 @@ import Charts
 class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDelegate, BLEDataProcessDelegate {
 
     @IBOutlet weak var txtSensorMax: UITextField!
-    @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var gvMeasureValue: LMGaugeView!
     @IBOutlet weak var cvMeasureValues: LineChartView!
 
@@ -54,6 +53,16 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
         rblProtocol.queryProtocolVersion()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        uninitRBP()
+        if dataInputTimer != nil {
+            dataInputTimer.invalidate()
+        }
+        if syncTimer != nil {
+            syncTimer.invalidate()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,8 +84,12 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
         return true
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        txtSensorMax.resignFirstResponder()
+    }
+    
     @IBAction func onSaveBtn_Click(sender: AnyObject) {
-        if txtSensorMax.text == nil {
+        if txtSensorMax.text == nil || txtSensorMax.text!.isEmpty {
             self.view.makeToast(message: "Please input sensor max!")
             return
         }
@@ -86,17 +99,6 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
         userDefaults.setInteger(sensorMax!, forKey: "sensor_max")
         userDefaults.synchronize()
         self.view.makeToast(message: "Saved sensor max value!")
-    }
-    
-    @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        uninitRBP()
-        if dataInputTimer != nil {
-            dataInputTimer.invalidate()
-        }
-        if syncTimer != nil {
-            syncTimer.invalidate()
-        }
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func onDataInputTimer(timer: NSTimer) {
@@ -116,9 +118,6 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
         if ble.activePeripheral != nil {
             ble.CM.cancelPeripheralConnection(ble.activePeripheral)
         }
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1000000000)), dispatch_get_main_queue(), { () -> Void in
-            self.onCloseBtn_Click(self.btnClose)
-        })
     }
     
 
@@ -126,6 +125,7 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let sensorMax = userDefaults.integerForKey("sensor_max")
         txtSensorMax.text = "\(sensorMax)"
+        gvMeasureValue.valueFont = UIFont.systemFontOfSize(60.0)
         
         cvMeasureValues.descriptionText = ""
         cvMeasureValues.noDataTextDescription = "No measure!"
@@ -172,6 +172,9 @@ class CalibrateViewController: UIViewController, UITextFieldDelegate, ProtocolDe
     }
     
     func initRBP() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        ble = appDelegate.ble
+        
         rblProtocol = RBLProtocol()
         rblProtocol.delegate = self
         rblProtocol.ble = ble

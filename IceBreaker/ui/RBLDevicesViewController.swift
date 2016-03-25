@@ -12,6 +12,7 @@ class RBLDevicesViewController: UITableViewController {
 
     var ble: BLE! = nil
     var devices: [BLEDevice]! = nil
+    var scanTimer: NSTimer! = nil
     
     
     override func viewDidLoad() {
@@ -22,6 +23,19 @@ class RBLDevicesViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        initData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        startScan()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if scanTimer != nil {
+            scanTimer.invalidate()
+            scanTimer = nil
+            self.view.hideToastActivity()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,4 +87,68 @@ class RBLDevicesViewController: UITableViewController {
     @IBAction func onCloseBtn_Click(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func initData() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        ble = appDelegate.ble
+    }
+    
+    func startScan() {
+        devices = [BLEDevice]()
+        if ble.activePeripheral != nil && ble.activePeripheral.state == .Connected {
+            ble.CM.cancelPeripheralConnection(ble.activePeripheral)
+        }
+        
+        if ble.peripherals != nil {
+            ble.peripherals = nil
+        }
+        
+        ble.findBLEPeripherals(3)
+        self.view.makeToastActivity(message: "Scanning...")
+        scanTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("onScanTimer:"), userInfo: nil, repeats: false)
+    }
+    
+    func onScanTimer(timer: NSTimer) {
+        self.view.hideToastActivity()
+        if ble.peripherals != nil && ble.peripherals.count > 0 {
+            
+            for var i = 0; i < ble.peripherals.count; i++ {
+                let p = ble.peripherals[i] as! CBPeripheral
+                let device = BLEDevice()
+                
+                device.uuid = p.identifier.UUIDString
+                
+                if let name = p.name {
+                    device.name = name
+                } else {
+                    device.name = "RedBear Device(1)"
+                }
+                
+                devices.append(device)
+            }
+            
+            //
+            // Goto the device list view.
+            //
+            self.performSegueWithIdentifier("gotoRBLDeviceList", sender: self)
+        } else {
+            //            //
+            //            // test.
+            //            //
+            //            for var i = 0; i < 3; i++ {
+            //                let dev = BLEDevice()
+            //                dev.name = "device_\(i+1)"
+            //                dev.uuid = "uuid_\(i+1)"
+            //                devices.append(dev)
+            //            }
+            //            //
+            //            // Goto the device list view.
+            //            //
+            //            self.performSegueWithIdentifier("gotoRBLDeviceList", sender: self)
+            
+            self.view.makeToast(message: "No BLE Device(s) found.")
+        }
+        self.tableView.reloadData()
+    }
+    
 }
