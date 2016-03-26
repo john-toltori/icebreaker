@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SigmaSwiftStatistics
 
 class Members: NSObject {
 
@@ -48,4 +49,36 @@ class Members: NSObject {
         }
         return nil
     }
+    
+    func findMean() -> Int? {
+        var values: [Double] = [Double]()
+        for var i = 0; i < count; i++ {
+            values.append(Double(members[i].getValue()))
+        }
+        
+        let aver = Sigma.average(values)
+        return Int(aver!)
+    }
+
+    func findMedian() -> Int? {
+        var values: [Double] = [Double]()
+        for var i = 0; i < count; i++ {
+            values.append(Double(members[i].getValue()))
+        }
+        
+        let median = Sigma.median(values)
+        return Int(median!)
+    }
+
+    func findRange() -> Int? {
+        var values: [Double] = [Double]()
+        for var i = 0; i < count; i++ {
+            values.append(Double(members[i].getValue()))
+        }
+        
+        let min = Sigma.min(values)
+        let max = Sigma.max(values)
+        return Int(max! - min!)
+    }
+    
 }

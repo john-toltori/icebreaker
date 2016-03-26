@@ -20,6 +20,10 @@ class CalculationsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        lblMean.text = "Mean = \(Members.getInstance().findMean())"
+        lblMedian.text = "Median = \(Members.getInstance().findMedian())"
+        lblRange.text = "Range = \(Members.getInstance().findRange())"
+        lblGroupGsr.text = "\(Members.getInstance().members[Members.getInstance().count - 1].value)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,5 +41,7 @@ class CalculationsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func onCloseBtn_Click(sender: AnyObject) {
+        self.navigationController!.popViewControllerAnimated(true)
+    }
 }

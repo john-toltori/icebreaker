@@ -22,6 +22,7 @@ class GroupLeaderViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        groupLeaderIndex = Members.getInstance().findGroupLeaderIndex()
         initUI()
     }
 

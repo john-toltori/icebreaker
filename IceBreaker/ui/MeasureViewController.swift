@@ -111,7 +111,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         if syncTimer != nil {
             syncTimer.invalidate()
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popViewControllerAnimated(true)
     }
     
     @IBAction func onNextBtn_Click(sender: AnyObject) {
@@ -169,7 +169,11 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     
     
     func initUI() {
-        btnName.setTitle(Members.getInstance().members[memberIndex].name, forState: .Normal)
+        if memberIndex == Members.getInstance().count - 1 {
+            btnName.setTitle("Group GSR", forState: .Normal)
+        } else {
+            btnName.setTitle(Members.getInstance().members[memberIndex].name, forState: .Normal)
+        }
         cvMeasureValues.descriptionText = ""
         cvMeasureValues.noDataTextDescription = "No measure!"
         cvMeasureValues.dragEnabled = false

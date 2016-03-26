@@ -43,21 +43,15 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
 
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier != nil && segue.identifier! == "gotoGroupLeader" {
-            let vc = segue.destinationViewController as! GroupLeaderViewController
-            vc.groupLeaderIndex = Members.getInstance().findGroupLeaderIndex()
-        }
     }
+    */
 
     @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func onNextBtn_Click(sender: AnyObject) {
-        self.performSegueWithIdentifier("gotoGroupLeader", sender: self)
+        self.navigationController!.popViewControllerAnimated(true)
     }
 }

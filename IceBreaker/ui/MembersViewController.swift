@@ -44,7 +44,7 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        Members.getInstance().count = row + 1
+        Members.getInstance().count = row + 1 + 1
         tblMembers.reloadData()
     }
     
@@ -57,22 +57,43 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: MemberCell = tableView.dequeueReusableCellWithIdentifier("MemberCell", forIndexPath: indexPath) as! MemberCell
-        
-        cell.ivProfileImage.image = Members.getInstance().members[indexPath.row].profileImage != nil ? Members.getInstance().members[indexPath.row].profileImage : UIImage(named: "empty")
-        let gr: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("onProfileImage_Click:"))
-        cell.ivProfileImage.addGestureRecognizer(gr)
-        cell.ivProfileImage.tag = indexPath.row
-        cell.txtName.text = Members.getInstance().members[indexPath.row].name
-        cell.txtName.delegate = self
-        cell.btnMeasure.removeTarget(self, action: Selector("onMeasureBtn_Click:"), forControlEvents: .TouchUpInside)
-        cell.btnMeasure.addTarget(self, action: Selector("onMeasureBtn_Click:"), forControlEvents: .TouchUpInside)
-        
-        cell.txtName.tag = indexPath.row
-        cell.btnMeasure.tag = indexPath.row
-        cell.selectionStyle = .None
-        
-        return cell
+        if indexPath.row < Members.getInstance().count - 1 {
+            let cell: MemberCell = tableView.dequeueReusableCellWithIdentifier("MemberCell", forIndexPath: indexPath) as! MemberCell
+            
+            cell.ivProfileImage.image = Members.getInstance().members[indexPath.row].profileImage != nil ? Members.getInstance().members[indexPath.row].profileImage : UIImage(named: "empty")
+            let gr: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("onProfileImage_Click:"))
+            cell.ivProfileImage.addGestureRecognizer(gr)
+            cell.ivProfileImage.tag = indexPath.row
+            cell.txtName.text = Members.getInstance().members[indexPath.row].name
+            cell.txtName.delegate = self
+            cell.btnMeasure.removeTarget(self, action: Selector("onMeasureBtn_Click:"), forControlEvents: .TouchUpInside)
+            cell.btnMeasure.addTarget(self, action: Selector("onMeasureBtn_Click:"), forControlEvents: .TouchUpInside)
+            
+            cell.txtName.tag = indexPath.row
+            cell.btnMeasure.tag = indexPath.row
+            cell.selectionStyle = .None
+            
+            return cell
+        } else {
+            var cell = tableView.dequeueReusableCellWithIdentifier("GroupCell")
+            
+            if cell == nil {
+                cell = UITableViewCell(style: .Default, reuseIdentifier: "GroupCell")
+            }
+            
+            cell!.textLabel!.text = "Group GSR Measure"
+            
+            return cell!
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == Members.getInstance().count - 1 {
+            //
+            // Measure group GSR.
+            //
+            self.performSegueWithIdentifier("gotoBeginGroup", sender: self)
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -110,6 +131,9 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             vc.ble = self.ble
         } else if segue.identifier != nil && segue.identifier == "gotoBegin" {
             let vc = segue.destinationViewController as! BeginViewController
+            vc.ble = self.ble
+        } else if segue.identifier != nil && segue.identifier == "gotoBeginGroup" {
+            let vc = segue.destinationViewController as! BeginGroupViewController
             vc.ble = self.ble
         }
     }
@@ -203,7 +227,7 @@ class MembersViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
             return true
         } else {
-            for var i = 0; i < Members.getInstance().count; i++ {
+            for var i = 0; i < Members.getInstance().count - 1; i++ {
                 if Members.getInstance().members[i].name.isEmpty {
                     self.view.makeToast(message: "Please input \(i+1)th member's name!")
                     return false
