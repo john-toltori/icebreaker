@@ -20,7 +20,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     #if PIN19
     var SENSOR_PIN: UInt8 = 19
     #elseif PIN18
-    var SENSOR_PIN: UInt8 = 11
+    var SENSOR_PIN: UInt8 = 18
     #endif
     
     var SENSOR_MAX_VALUE: UInt16 = 600
@@ -189,6 +189,8 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         cvMeasureValues.viewPortHandler.setMaximumScaleY(2.0)
         cvMeasureValues.viewPortHandler.setMaximumScaleX(2.0)
         cvMeasureValues.legend.form = .Line
+        
+        gvMeasureValue.value = 0
         showMeasureValues()
     }
     

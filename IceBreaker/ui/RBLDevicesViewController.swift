@@ -126,11 +126,6 @@ class RBLDevicesViewController: UITableViewController {
                 
                 devices.append(device)
             }
-            
-            //
-            // Goto the device list view.
-            //
-            self.performSegueWithIdentifier("gotoRBLDeviceList", sender: self)
         } else {
             //            //
             //            // test.
