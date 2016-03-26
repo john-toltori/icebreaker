@@ -71,7 +71,6 @@ class RBLDevicesViewController: UITableViewController {
         if ble.peripherals != nil && ble.peripherals.count > indexPath.row {
             ble.connectPeripheral(ble.peripherals[indexPath.row] as! CBPeripheral)
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     /*
@@ -84,10 +83,6 @@ class RBLDevicesViewController: UITableViewController {
     }
     */
 
-    @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     func initData() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         ble = appDelegate.ble
