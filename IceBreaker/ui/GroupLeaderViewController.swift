@@ -32,7 +32,7 @@ class GroupLeaderViewController: UIViewController {
     }
     
     @IBAction func onCloseBtn_Click(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popViewControllerAnimated(true)
     }
 
     @IBAction func onShareBtn_Click(sender: AnyObject) {
@@ -71,7 +71,7 @@ class GroupLeaderViewController: UIViewController {
             let leader = Members.getInstance().members[index]
             ivProfileImage.image = leader.profileImage
             lblName.text = leader.name
-            lblMessage1.text = "\(leader.name) has been selected as your GRUOP LEADER based on analysis of the teams individual GSR measurements."
+            lblMessage1.text = "\(leader.name) has been selected as your GROUP LEADER based on analysis of the teams individual GSR measurements."
             lblMessage2.text = "Please keep in mind that \(leader.name) could have had the hands with the most SWEAT :)"
         } else {
             self.dismissViewControllerAnimated(true, completion: nil)

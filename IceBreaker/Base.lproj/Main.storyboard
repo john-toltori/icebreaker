@@ -640,7 +640,7 @@
                                     <constraint firstAttribute="width" constant="40" id="Woa-xD-gB5"/>
                                     <constraint firstAttribute="height" constant="40" id="rwj-QS-pB8"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="HEg-SX-Jm6"/>
@@ -723,7 +723,7 @@
                                     <constraint firstAttribute="width" secondItem="fAg-Ze-1Wv" secondAttribute="height" multiplier="41:15" id="j3l-1a-JfN"/>
                                     <constraint firstAttribute="height" constant="40" id="kJr-Vu-Oxa"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="j3l-1a-JfN"/>
@@ -834,7 +834,7 @@
                                     <constraint firstAttribute="width" constant="40" id="gGI-cz-lRD"/>
                                     <constraint firstAttribute="height" constant="40" id="gO4-M8-AMd"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="JyF-BQ-7Uk"/>
@@ -1079,7 +1079,7 @@
                                     <constraint firstAttribute="height" constant="40" id="UIM-gS-D2A"/>
                                     <constraint firstAttribute="width" secondItem="qRW-gD-kPr" secondAttribute="height" multiplier="41:15" id="Yh5-u6-fJU"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Yh5-u6-fJU"/>
@@ -1152,7 +1152,7 @@
                                     <constraint firstAttribute="height" constant="40" id="BUf-hb-4W2"/>
                                     <constraint firstAttribute="width" constant="40" id="QaG-5u-F8r"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="8R7-Bd-2en"/>
@@ -1207,8 +1207,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GROUOP GSR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C1-yb-eAS">
-                                <rect key="frame" x="16" y="309" width="288" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GROUP GSR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C1-yb-eAS">
+                                <rect key="frame" x="16" y="309" width="288" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1314,7 +1314,7 @@
                                     <constraint firstAttribute="height" constant="40" id="8rL-1K-awm"/>
                                     <constraint firstAttribute="width" constant="40" id="Jpe-I8-MSF"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="3v3-D9-GCp"/>
@@ -1388,7 +1388,7 @@
                                     <constraint firstAttribute="height" constant="40" id="hUW-Cg-Sno"/>
                                     <constraint firstAttribute="width" secondItem="OYe-VI-7Qc" secondAttribute="height" multiplier="41:15" id="hn7-HI-kYA"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="left_arrow"/>
+                                <state key="normal" backgroundImage="back"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="hn7-HI-kYA"/>
@@ -1509,13 +1509,13 @@
         <image name="Home" width="25" height="25"/>
         <image name="Search" width="25" height="25"/>
         <image name="Settings" width="25" height="25"/>
+        <image name="back" width="184" height="92"/>
         <image name="btn_retest_bg" width="31" height="31"/>
         <image name="btn_start_bg" width="30" height="30"/>
         <image name="empty" width="90" height="90"/>
         <image name="fingers" width="269" height="122"/>
         <image name="formulas" width="358" height="486"/>
         <image name="heading_bg" width="359" height="80"/>
-        <image name="left_arrow" width="64" height="64"/>
         <image name="measure" width="256" height="256"/>
         <image name="next_btn_bg" width="142" height="39"/>
         <image name="right_arrow" width="64" height="64"/>
@@ -1523,7 +1523,7 @@
         <image name="view_bg" width="375" height="675"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HEb-cP-Di8"/>
         <segue reference="hdd-wN-rRL"/>
-        <segue reference="7xP-Wu-wAp"/>
     </inferredMetricsTieBreakers>
 </document>
