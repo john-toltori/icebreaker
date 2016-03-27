@@ -71,6 +71,12 @@ class RBLDevicesViewController: UITableViewController {
         if ble.peripherals != nil && ble.peripherals.count > indexPath.row {
             ble.connectPeripheral(ble.peripherals[indexPath.row] as! CBPeripheral)
         }
+
+        self.view.makeToast(message: "Connected to device!")
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1000000000)), dispatch_get_main_queue(), { () -> Void in
+            self.tabBarController!.selectedIndex = 0
+        })
     }
 
     /*
