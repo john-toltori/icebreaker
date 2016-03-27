@@ -50,7 +50,7 @@ class Members: NSObject {
         return nil
     }
     
-    func findMean() -> Int? {
+    func findMean() -> Int {
         var values: [Double] = [Double]()
         for var i = 0; i < count; i++ {
             values.append(Double(members[i].getValue()))
@@ -60,7 +60,7 @@ class Members: NSObject {
         return Int(aver!)
     }
 
-    func findMedian() -> Int? {
+    func findMedian() -> Int {
         var values: [Double] = [Double]()
         for var i = 0; i < count; i++ {
             values.append(Double(members[i].getValue()))
@@ -70,7 +70,7 @@ class Members: NSObject {
         return Int(median!)
     }
 
-    func findRange() -> Int? {
+    func findRange() -> Int {
         var values: [Double] = [Double]()
         for var i = 0; i < count; i++ {
             values.append(Double(members[i].getValue()))
