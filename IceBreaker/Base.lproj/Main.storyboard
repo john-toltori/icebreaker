@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="piF-hx-dPN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -7,6 +7,38 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="FGi-un-DhB">
+            <objects>
+                <viewController id="piF-hx-dPN" customClass="SplashViewController" customModule="IceBreaker_11_pin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cy9-fq-obV"/>
+                        <viewControllerLayoutGuide type="bottom" id="05P-JU-Ags"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NO6-sQ-TFz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="9At-wu-srD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9At-wu-srD" firstAttribute="centerX" secondItem="NO6-sQ-TFz" secondAttribute="centerX" id="0Ce-ZS-2W4"/>
+                            <constraint firstItem="9At-wu-srD" firstAttribute="height" secondItem="NO6-sQ-TFz" secondAttribute="height" id="FCW-u6-oLR"/>
+                            <constraint firstItem="9At-wu-srD" firstAttribute="centerY" secondItem="NO6-sQ-TFz" secondAttribute="centerY" id="HKl-IT-LmO"/>
+                            <constraint firstItem="9At-wu-srD" firstAttribute="width" secondItem="NO6-sQ-TFz" secondAttribute="width" id="Mfw-rr-G33"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="gotoIntro" id="zoT-a7-WFE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-KF-baJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1186" y="1645"/>
+        </scene>
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -1477,6 +1509,7 @@
         <image name="measure" width="256" height="256"/>
         <image name="next_btn_bg" width="142" height="39"/>
         <image name="right_arrow" width="64" height="64"/>
+        <image name="splash" width="375" height="667"/>
         <image name="view_bg" width="375" height="675"/>
     </resources>
     <inferredMetricsTieBreakers>

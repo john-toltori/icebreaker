@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B71AD2D51CA82DA0007EE9E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD2D41CA82DA0007EE9E4 /* SplashViewController.swift */; };
 		B72872E81C98FFCB00CA07D8 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769E0BB1C964EBC00E78629 /* ENSideMenu.swift */; };
 		B72872E91C98FFCB00CA07D8 /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D7371C8D0DF20011E2BE /* MeasureViewController.swift */; };
 		B72872EA1C98FFCB00CA07D8 /* LMGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B73FECBE1C8D611E003A9382 /* LMGaugeView.m */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B71AD2D41CA82DA0007EE9E4 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ui/SplashViewController.swift; sourceTree = "<group>"; };
 		B728730D1C98FFCB00CA07D8 /* IceBreaker 11 pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IceBreaker 11 pin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B728730E1C98FFCD00CA07D8 /* IceBreaker copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "IceBreaker copy-Info.plist"; path = "/Users/toltori/Documents/Work/Develop/Freelancer/icebreaker_src_remote/IceBreaker copy-Info.plist"; sourceTree = "<absolute>"; };
 		B72AFA7A1CA5DBCF00D169C2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ui/MainViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				B74D665D1C9158D700F5B5DF /* ResultCell.swift */,
 				B769E0BD1C96519F00E78629 /* MenuViewController.swift */,
 				B7D9B4831C965DE0001ECE8A /* CalibrateViewController.swift */,
+				B71AD2D41CA82DA0007EE9E4 /* SplashViewController.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				B72872F61C98FFCB00CA07D8 /* BLEDataProcessor.swift in Sources */,
 				B72872F71C98FFCB00CA07D8 /* ShareViewController.swift in Sources */,
 				B72872F81C98FFCB00CA07D8 /* BeginViewController.swift in Sources */,
+				B71AD2D51CA82DA0007EE9E4 /* SplashViewController.swift in Sources */,
 				B72872F91C98FFCB00CA07D8 /* IntroViewController.swift in Sources */,
 				B72872FA1C98FFCB00CA07D8 /* AppDelegate.swift in Sources */,
 				B72872FB1C98FFCB00CA07D8 /* MemberCell.swift in Sources */,
