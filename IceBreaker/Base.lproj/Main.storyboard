@@ -619,7 +619,7 @@
                                     <constraint firstAttribute="height" constant="47" id="W1F-D7-s2O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" backgroundImage="right_arrow"/>
+                                <state key="normal" title="Next" backgroundImage="next_btn_bg"/>
                                 <connections>
                                     <action selector="onNextBtn_Click:" destination="0WA-77-qDH" eventType="touchUpInside" id="aEC-K0-jZA"/>
                                 </connections>
@@ -757,7 +757,7 @@
                                     <constraint firstAttribute="width" constant="139" id="mZG-Uc-2iH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" backgroundImage="right_arrow"/>
+                                <state key="normal" title="Next" backgroundImage="next_btn_bg"/>
                                 <connections>
                                     <action selector="onNextBtn_Click:" destination="0WA-77-qDH" eventType="touchUpInside" id="iL1-lB-Wrw"/>
                                     <action selector="onNextBtn_Click:" destination="0af-Jj-ilJ" eventType="touchUpInside" id="ozm-dL-Ru5"/>
@@ -1067,7 +1067,7 @@
                                     <constraint firstAttribute="width" constant="139" id="me3-t0-3Vs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" backgroundImage="right_arrow"/>
+                                <state key="normal" title="Next" backgroundImage="next_btn_bg"/>
                                 <connections>
                                     <segue destination="ost-PH-ZRe" kind="show" identifier="gotoCalculations" id="zNa-wh-I0i"/>
                                 </connections>
@@ -1172,7 +1172,7 @@
                                     <constraint firstAttribute="width" constant="139" id="iKt-tf-qXS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" backgroundImage="right_arrow"/>
+                                <state key="normal" title="Next" backgroundImage="next_btn_bg"/>
                                 <connections>
                                     <segue destination="iCC-2c-oVV" kind="show" identifier="gotoProcessing" id="SNG-E1-ncr"/>
                                 </connections>
@@ -1406,7 +1406,7 @@
                                     <constraint firstAttribute="width" constant="139" id="jmI-rf-J4u"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" backgroundImage="right_arrow"/>
+                                <state key="normal" title="Next" backgroundImage="next_btn_bg"/>
                                 <connections>
                                     <action selector="onShareBtn_Click:" destination="Ft5-zd-Fce" eventType="touchUpInside" id="wtR-IS-wko"/>
                                 </connections>
