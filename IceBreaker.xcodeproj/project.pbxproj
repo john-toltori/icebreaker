@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70D0B891CA86AA100D20436 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70D0B881CA86AA100D20436 /* AVFoundation.framework */; };
+		B70D0B8B1CA86B1500D20436 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B70D0B8A1CA86B1400D20436 /* beep.mp3 */; };
+		B71647C61CA9D9CB00316704 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B740D7321C8D048F0011E2BE /* Charts.framework */; };
 		B71AD2D51CA82DA0007EE9E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD2D41CA82DA0007EE9E4 /* SplashViewController.swift */; };
 		B72872E81C98FFCB00CA07D8 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769E0BB1C964EBC00E78629 /* ENSideMenu.swift */; };
 		B72872E91C98FFCB00CA07D8 /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740D7371C8D0DF20011E2BE /* MeasureViewController.swift */; };
@@ -35,7 +38,6 @@
 		B72873001C98FFCB00CA07D8 /* RBLDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796EDE11C904FF200808C0D /* RBLDevicesViewController.swift */; };
 		B72873021C98FFCB00CA07D8 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B796EDF61C905E8600808C0D /* CoreBluetooth.framework */; };
 		B72873031C98FFCB00CA07D8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73FED131C8D69F0003A9382 /* CoreData.framework */; };
-		B72873041C98FFCB00CA07D8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B740D7321C8D048F0011E2BE /* Charts.framework */; };
 		B72873061C98FFCB00CA07D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA61C8C56E900E0F1F6 /* LaunchScreen.storyboard */; };
 		B72873071C98FFCB00CA07D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA41C8C56E900E0F1F6 /* Assets.xcassets */; };
 		B72873081C98FFCB00CA07D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95BA11C8C56E900E0F1F6 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B70D0B881CA86AA100D20436 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B70D0B8A1CA86B1400D20436 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = ../../../../../../Downloads/beep.mp3; sourceTree = "<group>"; };
 		B71AD2D41CA82DA0007EE9E4 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ui/SplashViewController.swift; sourceTree = "<group>"; };
 		B728730D1C98FFCB00CA07D8 /* IceBreaker 11 pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IceBreaker 11 pin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B728730E1C98FFCD00CA07D8 /* IceBreaker copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "IceBreaker copy-Info.plist"; path = "/Users/toltori/Documents/Work/Develop/Freelancer/icebreaker_src_remote/IceBreaker copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -95,10 +99,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B71647C61CA9D9CB00316704 /* Charts.framework in Frameworks */,
+				B70D0B891CA86AA100D20436 /* AVFoundation.framework in Frameworks */,
 				B7D558761CA6381700765E96 /* SigmaSwiftStatistics.framework in Frameworks */,
 				B72873021C98FFCB00CA07D8 /* CoreBluetooth.framework in Frameworks */,
 				B72873031C98FFCB00CA07D8 /* CoreData.framework in Frameworks */,
-				B72873041C98FFCB00CA07D8 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +189,7 @@
 		B7A95B911C8C56E800E0F1F6 = {
 			isa = PBXGroup;
 			children = (
+				B70D0B881CA86AA100D20436 /* AVFoundation.framework */,
 				B7D558751CA6381700765E96 /* SigmaSwiftStatistics.framework */,
 				B796EDF61C905E8600808C0D /* CoreBluetooth.framework */,
 				B73FED131C8D69F0003A9382 /* CoreData.framework */,
@@ -211,6 +217,7 @@
 				B7A95B9D1C8C56E800E0F1F6 /* AppDelegate.swift */,
 				B7A95BA11C8C56E900E0F1F6 /* Main.storyboard */,
 				B7A95BA41C8C56E900E0F1F6 /* Assets.xcassets */,
+				B70D0B8A1CA86B1400D20436 /* beep.mp3 */,
 				B7A95BA61C8C56E900E0F1F6 /* LaunchScreen.storyboard */,
 				B7A95BA91C8C56E900E0F1F6 /* Info.plist */,
 			);
@@ -303,6 +310,7 @@
 			files = (
 				B72873061C98FFCB00CA07D8 /* LaunchScreen.storyboard in Resources */,
 				B72873071C98FFCB00CA07D8 /* Assets.xcassets in Resources */,
+				B70D0B8B1CA86B1500D20436 /* beep.mp3 in Resources */,
 				B72873081C98FFCB00CA07D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

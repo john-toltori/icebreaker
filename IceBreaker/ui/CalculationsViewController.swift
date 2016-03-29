@@ -23,7 +23,7 @@ class CalculationsViewController: UIViewController {
         lblMean.text = "Mean = \(Members.getInstance().findMean())"
         lblMedian.text = "Median = \(Members.getInstance().findMedian())"
         lblRange.text = "Range = \(Members.getInstance().findRange())"
-        lblGroupGsr.text = "\(Members.getInstance().members[Members.getInstance().count - 1].value)"
+        lblGroupGsr.text = "\(Members.getInstance().members[Members.getInstance().count - 1].getValue())"
     }
 
     override func didReceiveMemoryWarning() {

@@ -36,7 +36,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let member: MemberInfo = Members.getInstance().members[indexPath.row]
         cell.ivProfileImage.image = indexPath.row < Members.getInstance().count - 1 ? member.profileImage : UIImage(named: "group")
-        cell.lblName.text = member.name
+        cell.lblName.text = indexPath.row < Members.getInstance().count - 1 ? member.name : "Group"
         cell.lblValue.text = "\(member.getValue())"
         cell.selectionStyle = .None
         

@@ -37,12 +37,12 @@ class Members: NSObject {
         }
         
         var values: [Int] = [Int]()
-        for var i = 0; i < count; i++ {
+        for var i = 0; i < count - 1; i++ {
             values.append(members[i].getValue())
         }
 
         let maxValue: Int = values.maxElement()!
-        for var i = 0; i < count; i++ {
+        for var i = 0; i < count - 1; i++ {
             if members[i].getValue() == maxValue {
                 return i
             }

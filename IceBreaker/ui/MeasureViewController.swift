@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import Charts
 
 class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessDelegate {
@@ -44,6 +45,8 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     var countDownTimer: NSTimer! = nil
     var countDownValue = 0
     
+    var audioPlayer: AVAudioPlayer! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,6 +78,12 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     */
     
     @IBAction func onStartBtn_Click(sender: AnyObject) {
+        //
+        // Beep 출력 시작.
+        //
+        audioPlayer.numberOfLoops = -1
+        //audioPlayer.play()
+        
         //
         // Countdown 시작.
         //
@@ -111,6 +120,7 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         if syncTimer != nil {
             syncTimer.invalidate()
         }
+        audioPlayer.stop()
         self.navigationController!.popViewControllerAnimated(true)
     }
     
@@ -150,6 +160,12 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
         if measureValue < 0 {
             measureValue = 0
         }
+        
+        //
+        // Beep 음량 조정.
+        //
+        audioPlayer.volume = Float(measureValue) / Float(SENSOR_MAX_VALUE)
+        
         //let measureValue = rand() % 100
         Members.getInstance().members[memberIndex].measures.append(Int(measureValue))
         gvMeasureValue.value = CGFloat(measureValue)
@@ -169,6 +185,14 @@ class MeasureViewController: UIViewController, ProtocolDelegate, BLEDataProcessD
     
     
     func initUI() {
+        let beep = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("beep", ofType: "mp3")!)
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOfURL:beep)
+            audioPlayer.prepareToPlay()
+        }catch {
+            print("Error getting the audio file")
+        }
+        
         if memberIndex == Members.getInstance().count - 1 {
             btnName.setTitle("Group GSR", forState: .Normal)
         } else {
