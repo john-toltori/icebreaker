@@ -40,6 +40,8 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.lblValue.text = "\(member.getValue())"
         cell.selectionStyle = .None
         
+        cell.backgroundColor = UIColor.clearColor()
+        cell.contentView.backgroundColor = UIColor.clearColor()
         return cell
     }
 
